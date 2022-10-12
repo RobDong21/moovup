@@ -1,13 +1,19 @@
 import React from 'react'
 
-import { Button } from './reusable-components/button/button.component'
+import { FriendList } from './components/friend-list/friend-list.component'
+import { GlobalStyle, MainContainer, Header, Title } from './App.styles'
 
-function App() {
-  return (
-    <div>
-      <Button>Test</Button>
-    </div>
-  )
-}
+const App = () => (
+  <>
+    <GlobalStyle />
+    <Header>
+      <Title>Friends Moovup</Title>
+      <span>Robert DONG</span>
+    </Header>
+    <MainContainer>
+      <FriendList />
+    </MainContainer>
+  </>
+)
 
 export default App
