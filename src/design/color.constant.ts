@@ -1,8 +1,6 @@
 const COLOR = {
   PRIMARY: '#797EF6',
   SECONDARY: '#FFFFFF',
-  TERTIARY: '#888888',
-  QUATERNARY: '#F0F0F0',
 }
 
 export { COLOR }

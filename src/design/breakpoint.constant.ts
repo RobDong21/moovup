@@ -1,5 +1,5 @@
 const BREAKPOINT = {
-  S: '415px',
+  S: '576px',
   M: '769px',
   L: '993px',
 }
