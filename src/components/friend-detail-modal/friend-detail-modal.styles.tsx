@@ -29,6 +29,18 @@ const Content = styled.div`
   transform: translate3d(-50%, -50%, 0);
   width: calc(100% - ${SPACING.M});
   max-width: 600px;
+  max-height: 90vh;
+  overflow: auto;
 `
 
-export { Container, Overlay, Content }
+const CloseButton = styled.a`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-weight: bold;
+  text-decoration: none;
+`
+
+const mapCustomStyles = { width: '100%', height: 300, marginBottom: SPACING.M }
+
+export { Container, Overlay, Content, CloseButton, mapCustomStyles }

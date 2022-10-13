@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 import { Button } from '../../reusable-components/button/button.component'
-import { Container, Title, Image, Email } from './friend-item.styles'
+import { Container } from './friend-item.styles'
+import { FriendInfo } from '../friend-info/friend-info.component'
 import { FriendDetailModal } from '../friend-detail-modal/friend-detail-modal'
 
 interface Props {
@@ -19,20 +20,18 @@ const FriendItem = ({ lastname, firstname, picture, email, longitude, latitude }
   return (
     <>
       <Container onClick={() => setShowModal(!showModal)}>
-        <Title>
-          {lastname.toUpperCase()} {firstname}
-        </Title>
-        <Email href='mailto:${email}' onClick={(e) => e.stopPropagation()}>
-          {email}
-        </Email>
-        <Image style={{ backgroundImage: `url("${picture}")` }} />
+        <FriendInfo lastname={lastname} firstname={firstname} picture={picture} email={email} />
         <Button>See Detail</Button>
       </Container>
       {showModal && (
         <FriendDetailModal
           longitude={longitude}
           latitude={latitude}
-          onCancelButtonClick={() => setShowModal(false)}
+          lastname={lastname}
+          firstname={firstname}
+          picture={picture}
+          email={email}
+          onCloseButtonClick={() => setShowModal(false)}
         />
       )}
     </>

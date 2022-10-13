@@ -1,16 +1,35 @@
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import Map, { Marker, NavigationControl } from 'react-map-gl'
 
-import { Container, Overlay, Content } from './friend-detail-modal.styles'
-import { Button } from '../../reusable-components/button/button.component'
+import {
+  Container,
+  Overlay,
+  Content,
+  CloseButton,
+  mapCustomStyles,
+} from './friend-detail-modal.styles'
+import { FriendInfo } from '../friend-info/friend-info.component'
 
 interface Props {
+  lastname: string
+  firstname: string
+  picture: string
+  email: string
   longitude: number
   latitude: number
-  onCancelButtonClick: () => void
+  onCloseButtonClick: () => void
 }
 
-const FriendDetailModal = ({ longitude, latitude, onCancelButtonClick }: Props) => {
+const FriendDetailModal = ({
+  lastname,
+  firstname,
+  picture,
+  email,
+  longitude,
+  latitude,
+  onCloseButtonClick,
+}: Props) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
 
@@ -23,9 +42,23 @@ const FriendDetailModal = ({ longitude, latitude, onCancelButtonClick }: Props) 
     <Container>
       <Overlay />
       <Content>
-        {longitude}
-        {latitude}
-        <Button onClick={onCancelButtonClick}>Close</Button>
+        <CloseButton href='#' onClick={onCloseButtonClick}>
+          X
+        </CloseButton>
+        <Map
+          initialViewState={{
+            longitude: longitude,
+            latitude: latitude,
+            zoom: 9,
+          }}
+          style={mapCustomStyles}
+          mapStyle='mapbox://styles/mapbox/streets-v9'
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+        >
+          <Marker longitude={longitude} latitude={latitude} anchor='bottom' />
+          <NavigationControl />
+        </Map>
+        <FriendInfo lastname={lastname} firstname={firstname} picture={picture} email={email} />
       </Content>
     </Container>,
     document.getElementById('portal') as HTMLElement,
