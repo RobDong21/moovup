@@ -26,13 +26,4 @@ const MainContainer = styled.div`
   }
 `
 
-const Header = styled.header`
-  text-align: center;
-  padding: ${SPACING.M} ${SPACING.S};
-`
-
-const Title = styled.h1`
-  font-size: ${FONT_SIZE.L};
-`
-
-export { GlobalStyle, MainContainer, Header, Title }
+export { GlobalStyle, MainContainer }
