@@ -2,7 +2,7 @@
 
 ## Deployed URL:
 
-$$TBD$$
+https://robert-dong-moovup.onrender.com/
 
 ## Get started:
 
@@ -27,10 +27,11 @@ Note: since the project is small, I choose purposely to not overload the bundle 
 
 - SPA: Create-React-App (https://github.com/facebook/create-react-app) seems to be an obvious choice to scaffold a Single Page Application with ReactJS
 - State management: Since the React tree is small and prop drilling is not an issue here, it feels overkill to pull a state management such as Redux/Recoil/Zustang. I could have made use of the native Context but again I didnt see the need here.
-- API call: In general, I would use react-query to handle api calls as it handles delicate tasks such as caching. Same reason as above, for this project it would be overkill. Same reason for preferring the native fetch api against axios.
+- API call: In general, I would use react-query to handle api calls as it handles delicate tasks such as caching. I also choose purposely the native fetch api against axios.
 - UI framework: Even though the instruction mentions the right to use a UI framework in order to speed up development, I choose to create components myself to keep the bundle light.
 - Modal: react-modal (https://github.com/reactjs/react-modal) could have been a choice. But React has a way to make one in a simple and native way with Portal
 - Mobile first: decide to support viewport start from 576px which correspond to Bootstrap XS breakpoint
+- E2E test: Cypress do wonder for end to end test. But for this project, it feels unecessary.
 
 ---
 
@@ -53,9 +54,9 @@ Note: since the project is small, I choose purposely to not overload the bundle 
 - [ ] Production bundle (minified)
 - [ ] Separate .env file for development and production
 - [ ] Responsiveness
+- [ ] Cross browser / cross OS
 - [ ] Unit tests (Jest and React Testing Library)
 - [ ] Mock api call (MSW)
-- [ ] E2E tests (Cypress)
 
 ---
 
@@ -96,7 +97,7 @@ Edited to ensure this temporary web app to not be crawled by search engine bot
 
 ### Folder structure
 
-- Grouped files by feature for easy file traversal
+- grouped files by feature for easy file traversal
 - reusable-component folder contains react component that could be reuse in any project
 - component folder contains react component specific to this project
 - design folder contains the design system use for this web app: font size, spacing, color and breakpoint
